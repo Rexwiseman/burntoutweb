@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burnt Out - Indie Band</title>
+    <!-- Import the Rubber Stamp and Pixelify Sans fonts -->
+    <link href="https://fonts.cdnfonts.com/css/rubber-stamp" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://i.imgur.com/fkDQoij.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+            color: white;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            transition: background-color 0.3s;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .navbar {
+            transform: translateX(-100%);
+            background-color: darkred;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .navbar a {
+            font-family: 'Pixelify Sans', sans-serif; /* Apply the Pixelify Sans font */
+            display: block;
+            text-decoration: none;
+            color: black;
+            padding: 10px 0;
+            transition: color 0.3s;
+            font-size: 1.2em;
+            text-align: center;
+        }
+
+        .navbar a:last-child {
+            border-bottom: none;
+        }
+
+        .navbar a:hover {
+            color: darkgrey;
+        }
+
+        .menu-btn {
+            width: 30px;
+            height: 22px;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1;
+            cursor: pointer;
+        }
+
+        .menu-btn div {
+            width: 100%;
+            height: 4px;
+            background-color: darkred;
+            margin: 5px 0;
+            transition: all 0.3s;
+        }
+
+        .active .menu-btn div:first-child {
+            background-color: black;
+            transform: rotate(-45deg) translateY(9px);
+        }
+
+        .active .menu-btn div:nth-child(2) {
+            opacity: 0;
+        }
+
+        .active .menu-btn div:last-child {
+            background-color: black;
+            transform: rotate(45deg) translateY(-9px);
+        }
+
+        .active .navbar {
+            transform: translateX(0);
+        }
+
+        main {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        #home h1 {
+            font-family: 'Rubber Stamp', sans-serif;
+            color: darkred;
+            font-size: 4em;
+            text-shadow: 2px 2px 4px black;
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        section {
+            display: none;
+            transition: opacity 0.3s;
+        }
+
+        .active-section {
+            display: block;
+            opacity: 1;
+        }
+        .active-section {
+        animation: fadeIn 0.3s;
+        display: block;
+        opacity: 1;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    /* Style for the social media links and icons */
+#social .social-link {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Space between the icon and the text */
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s;
+}
+
+#social .social-link:hover {
+    color: darkgrey;
+}
+
+#social img.social-icon {
+    width: 24px; /* Adjust the size as needed */
+}
+/* Style for the TikTok icon */
+#social img.tiktok-icon {
+    width: 24px; /* Adjust size as needed */
+}
+#home h1, #social h1 {
+    /* ... existing styles ... */
+    font-family: 'Rubber Stamp', sans-serif;
+    color: darkred;
+    font-size: 3em;
+    text-shadow: 2px 2px 4px black;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+    </style>
+</head>
+
+<body>
+    <div class="menu-btn" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="navbar">
+        <a href="#" onclick="showSection('home')">Home</a>
+        <a href="#" onclick="showSection('contact')">Contact</a>
+        <a href="#" onclick="showSection('social')">Social Media</a>
+    </div>
+    <main>
+        <section id="home" class="active-section">
+            <h1>BURNT OUT</h1>
+        </section>
+        <section id="contact">
+            <h1>Contact Burnt Out</h1>
+            <p>Email: Rexwiseman62@gmail.com</p>
+        </section>
+        <section id="social">
+    <h1>BURNT OUT'S SOCIALS</h1>
+        <a href="https://www.instagram.com/bburntout/" class="social-link" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png" alt="Instagram Icon" class="social-icon">
+            @bburntout
+    <a href="https://www.tiktok.com/@bburntout" class="social-link" target="_blank">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/016/716/450/small/tiktok-icon-free-png.png" alt="TikTok Icon" class="tiktok-icon">
+        @bburntout
+    </a>
+</p>
+        </a>
+    </p>
+        </section>
+    </main>
+    <script>
+        function toggleMenu() {
+            document.body.classList.toggle('active');
+        }
+
+        function showSection(id) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(sec => sec.classList.remove('active-section'));
+            document.getElementById(id).classList.add('active-section');
+            document.body.classList.remove('active'); // Close the menu
+        }
+        function showSection(id) {
+        const sections = document.querySelectorAll('section');
+        sections.forEach(sec => {
+            sec.classList.remove('active-section');
+            sec.style.display = 'none'; // Hide the section immediately
+        });
+        const targetSection = document.getElementById(id);
+        targetSection.style.display = 'block'; // Display the target section immediately
+        setTimeout(() => targetSection.classList.add('active-section'), 10); // Slight delay before adding the class for the fade-in animation
+        document.body.classList.remove('active'); // Close the menu
+    }
+    </script>
+</body>
+
+</html>
